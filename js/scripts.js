@@ -22,19 +22,27 @@ $(document).ready(function(){
 
 // var reply = phraseArray.map(function(word) {
 phraseArray.forEach(function(word) {
-  first = word.slice(0,1);
-  firstTwo = word.slice(0,2);
-  wordWithoutFirst = word.slice(1);
-  wordWithoutFirstTwo = word.slice(2);
+  var first = word.slice(0,1);
+  var firstTwo = word.slice(0,2);
+  var wordWithoutFirst = word.slice(1);
+  var wordWithoutFirstTwo = word.slice(2);
 
-  if (first === "a" || first === "e" || first === "i" || first === "o" || first === "u") {
+
+if (first === "a" || first === "e" || first === "i" || first === "o" || first === "u") {
   console.log(word.concat("way"));
+  $(".placeholder").append(word.concat("way "));
+} else if (first <= 9) {
+  console.log(word);
+  $(".placeholder").append(word + " ");
 } else if (firstTwo === "qu" || firstTwo === "sh" || firstTwo === "ch" || firstTwo === "th") {
   console.log(wordWithoutFirstTwo.concat(firstTwo + "ay"));
+  $(".placeholder").append(wordWithoutFirstTwo.concat(firstTwo + "ay "));
 } else if (first !== "a" || first !== "e" || first !== "i" || first !== "o" || first !== "u") {
   console.log(wordWithoutFirst.concat(first + "ay"));
+  $(".placeholder").append(wordWithoutFirst.concat(first + "ay "));
 };
 });
+
 // (var index = 0; index < phraseArray.length; index++)
     // console.log("first " + first);
     // console.log("phraseArray " + phraseArray);
