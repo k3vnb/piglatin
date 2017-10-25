@@ -10,34 +10,47 @@ $(document).ready(function(){
         event.preventDefault();
     var vowels = ["a","e","i","o","u"]
     var phraseString = $("input#phrase").val();
-    var first = phraseString.slice(0,1);
-    var firstTwo = phraseString.slice(0,2);
+    // var first = phraseString.slice(0,1);
+    // var firstTwo = phraseString.slice(0,2);
     var phraseArray = phraseString.split(" ");
     var wordSlice = phraseArray.slice(0,1);
     var wordSliceString = wordSlice.toString();
-    var wordWithoutFirst = wordSliceString.slice(1);
-    var wordWithoutFirstTwo = wordSliceString.slice(2);
+    // var wordWithoutFirst = wordSliceString.slice(1);
+    // var wordWithoutFirstTwo = wordSliceString.slice(2);
     var letterSlice = Array.from(wordSlice[0]);
 
 
-    console.log("first " + first);
-    console.log("phraseArray " + phraseArray);
-    console.log("wordSlice " + wordSlice);
-    console.log("letterSlice " +letterSlice);
-    console.log("wordWithoutFirst " + wordWithoutFirst);
+// var reply = phraseArray.map(function(word) {
+phraseArray.forEach(function(word) {
+  first = word.slice(0,1);
+  firstTwo = word.slice(0,2);
+  wordWithoutFirst = word.slice(1);
+  wordWithoutFirstTwo = word.slice(2);
 
-    letterSlice
-
-
-
-  /////////////////////////////
-if (first === "a" || first === "e" || first === "i" || first === "o" || first === "u") {
-  console.log(phraseArray.concat() + "way");
+  if (first === "a" || first === "e" || first === "i" || first === "o" || first === "u") {
+  console.log(word.concat("way"));
 } else if (firstTwo === "qu" || firstTwo === "sh" || firstTwo === "ch" || firstTwo === "th") {
   console.log(wordWithoutFirstTwo.concat(firstTwo + "ay"));
 } else if (first !== "a" || first !== "e" || first !== "i" || first !== "o" || first !== "u") {
   console.log(wordWithoutFirst.concat(first + "ay"));
-}
+};
+});
+// (var index = 0; index < phraseArray.length; index++)
+    // console.log("first " + first);
+    // console.log("phraseArray " + phraseArray);
+    // console.log("wordSlice " + wordSlice);
+    // console.log("letterSlice " +letterSlice);
+    // console.log("wordWithoutFirst " + wordWithoutFirst);
+
+
+  /////////////////////////////
+// if (first === "a" || first === "e" || first === "i" || first === "o" || first === "u") {
+//   console.log(phraseArray.concat() + "way");
+// } else if (firstTwo === "qu" || firstTwo === "sh" || firstTwo === "ch" || firstTwo === "th") {
+//   console.log(wordWithoutFirstTwo.concat(firstTwo + "ay"));
+// } else if (first !== "a" || first !== "e" || first !== "i" || first !== "o" || first !== "u") {
+//   console.log(wordWithoutFirst.concat(first + "ay"));
+// }
 
   });//submit function end
 });//doc ready end
