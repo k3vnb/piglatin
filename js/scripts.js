@@ -8,8 +8,9 @@
 $(document).ready(function(){
   $("#formTranslate").submit(function(event){
         event.preventDefault();
-    var vowels = ["a","e","i","o","u"]
-    var phraseString = $("input#phrase").val();
+    var vowels = ["a","e","i","o","u"];
+    var compoundLetters = ["qu", "sh", "ch", "th", "sch"]
+    var phraseString = $("input#phrase").val().toLowerCase();
     // var first = phraseString.slice(0,1);
     // var firstTwo = phraseString.slice(0,2);
     var phraseArray = phraseString.split(" ");
@@ -27,8 +28,8 @@ phraseArray.forEach(function(word) {
   var wordWithoutFirst = word.slice(1);
   var wordWithoutFirstTwo = word.slice(2);
 
-
-if (first === "a" || first === "e" || first === "i" || first === "o" || first === "u") {
+// (first === "a" || first === "e" || first === "i" || first === "o" || first === "u")
+if  (vowels.indexOf(word[0]) > -1) {
   console.log(word.concat("way"));
   $(".placeholder").append(word.concat("way "));
 } else if (first <= 9) {
@@ -37,7 +38,7 @@ if (first === "a" || first === "e" || first === "i" || first === "o" || first ==
 } else if (firstTwo === "qu" || firstTwo === "sh" || firstTwo === "ch" || firstTwo === "th") {
   console.log(wordWithoutFirstTwo.concat(firstTwo + "ay"));
   $(".placeholder").append(wordWithoutFirstTwo.concat(firstTwo + "ay "));
-} else if (first !== "a" || first !== "e" || first !== "i" || first !== "o" || first !== "u") {
+} else if (first !== "a" && first !== "e" && first !== "i" && first !== "o" && first !== "u") {
   console.log(wordWithoutFirst.concat(first + "ay"));
   $(".placeholder").append(wordWithoutFirst.concat(first + "ay "));
 };
